@@ -50,3 +50,12 @@ def download_latest_image():
 	download(url + raw, config.PATH_DOWNLOADS + '/' + raw)
 	download(url + jpg, config.PATH_DOWNLOADS + '/' + jpg)
 	return config.PATH_DOWNLOADS + '/'+ raw[:-4]
+
+def download_image(index):
+	# Downloads two files (raw and jpg) given an index from the SD card
+	image_list = get_image_list()
+	raw, jpg = image_list[index-1], image_list[index-2]
+	url = config.URL_SERVER + '/' + config.PATH_SERVER + '/'
+	download(url + raw, config.PATH_DOWNLOADS + '/' + raw)
+	download(url + jpg, config.PATH_DOWNLOADS + '/' + jpg)
+	return config.PATH_DOWNLOADS + '/'+ raw[:-4]
